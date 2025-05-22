@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Detection Result</title>
+<link rel="stylesheet" href="/static/style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+<div class="container">
+    <h1>Analysis Result for URL</h1>
+    <p class="url"><a href="{{ result.url }}" target="_blank">{{ result.url }}</a></p>
+
+    {% if result.is_phishing %}
+        <p class="status phishing">⚠️ Phishing Likely Detected</p>
+    {% else %}
+        <p class="status safe">✅ URL appears Safe</p>
+    {% endif %}
+
+    <p><strong>Phishing Score:</strong> {{ result.score }}</p>
+    <h3>Details:</h3>
+    <ul>
+        {% if result.details %}
+            {% for detail in result.details %}
+                <li>{{ detail }}</li>
+            {% endfor %}
+        {% else %}
+            <li>No suspicious indicators found.</li>
+        {% endif %}
+    </ul>
+
+    <h3>URL Features Extracted:</h3>
+    <table>
+        <tr><th>Feature</th><th>Value</th></tr>
+        <tr><td>URL Length</td><td>{{ result.features.url_length }}</td></tr>
+        <tr><td>Domain</td><td>{{ result.features.domain }}</td></tr>
+        <tr><td>Scheme (HTTPS?)</td><td>{{ 'Yes' if result.features.has_https else 'No' }}</td></tr>
+        <tr><td>Domain Resolves</td><td>{{ 'Yes' if result.features.domain_resolves else 'No' }}</td></tr>
+        <tr><td>Suspicious Keywords Found</td><td>{{ result.features.suspicious_keywords_found | join(', ') if result.features.suspicious_keywords_found else 'None' }}</td></tr>
+    </table>
+
+    <a href="/">🔙 Analyze Another Link</a>
+</div>
+</body>
+</html>

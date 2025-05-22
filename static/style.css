@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    max-width: 700px;
+    width: 90%;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 25px;
+    color: #5a2a83;
+}
+
+form input[type="url"] {
+    width: 80%;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+form input[type="url"]:focus {
+    border-color: #764ba2;
+}
+
+form button {
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+    background-color: #764ba2;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #5a2a83;
+}
+
+.status.phishing {
+    color: #d9534f;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.status.safe {
+    color: #5cb85c;
+    font-weight: 700;
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+a {
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #764ba2;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    margin: 0 auto;
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #888;
+}
